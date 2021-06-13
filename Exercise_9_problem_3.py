@@ -32,8 +32,16 @@ print(data.crs)
 #  - Group the data by userid
 
 #  YOUR CODE HERE 3 to group 
-grouped=None
-
+grouped=data.groupby('userid')
+movements = gpd.GeoDataFrame(colums=['userid','geometry'])
+count = 0
+for key, group in grouped:
+  group  = group.sort_values('timestamp')
+  if len(group['geometry'])>=2:
+    line = (LineString(list(group['geometry'])))
+  else:
+    line=None
+  count=count+1
 # CODE FOR TESTING YOUR SOLUTION
 
 #Check the number of groups:

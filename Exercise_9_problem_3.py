@@ -94,7 +94,10 @@ movements['distance']=movements.apply(cal_distance, axis=1)
 #  - What was the maximum distance travelled in meters?
 
 # YOUR CODE HERE 6 to find max, min,mean of the distance.
-
+from statistics import mean
+print(mean(movements['distance']))
+print(max(movements['distance'].dropna()))
+print(min(movements['distance'])) #0.
 # - Finally, save the movements of into a Shapefile called ``some_movements.shp``
 
 # YOUR CODE HERE 7 to save as Shapefile
